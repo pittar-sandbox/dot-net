@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>simpleproject_api_inventory</RootNamespace>
+    <RootNamespace>simpleproject_products_api</RootNamespace>
   </PropertyGroup>
 
 

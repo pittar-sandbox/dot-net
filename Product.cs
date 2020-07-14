@@ -1,6 +1,6 @@
 using System;
 
-namespace simpleproject_api_inventory
+namespace simpleproject_products_api
 {
     public class Product
     {

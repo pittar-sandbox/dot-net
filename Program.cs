@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace simpleproject_api_inventory
+namespace simpleproject_products_api
 {
     public class Program
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace simpleproject_api_inventory.Controllers
+namespace simpleproject_products_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
