@@ -1,14 +1,15 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace simpleproject_products_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly ILogger<ProductsController> _logger;
@@ -19,14 +20,18 @@ namespace simpleproject_products_api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public async Task<IEnumerable<Product>> Get()
         {
-            Product p1 = new Product();
-            p1.ID = "0001";
-            p1.Name = "Table";
-            p1.Description = "En bois, haute";
+            List<Product> productList = new List<Product>();
 
-            return (new List<Product> {p1}).ToArray();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://i-product-api-fuse-online.apps.mgmt.myocp.net/api/product"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<List<Product>>(apiResponse);
+                }
+            }
         }
     }
 }
