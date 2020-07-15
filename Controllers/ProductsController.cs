@@ -24,7 +24,7 @@ namespace simpleproject_products_api.Controllers
         {
             List<Product> productList = new List<Product>();
 
-            _logger.LogInformation("DOTNETCORE: Get Product List");
+            _logger.LogInformation("DOTNETCORE-PRODUCTS-API: Get Product List");
 
             using (var httpClient = new HttpClient())
             {
