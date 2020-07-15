@@ -24,6 +24,8 @@ namespace simpleproject_products_api.Controllers
         {
             List<Product> productList = new List<Product>();
 
+            _logger.LogInformation("DOTNETCORE: Get Product List");
+
             using (var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.GetAsync("https://i-product-api-fuse-online.apps.mgmt.myocp.net/api/product"))
