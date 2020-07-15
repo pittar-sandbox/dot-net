@@ -18,7 +18,7 @@ namespace simpleproject_products_api
 
         public string addon {
             get {
-                return "Very useful information added by the dotnet core api";
+                return "Nouveau message";
             }
         }
 
