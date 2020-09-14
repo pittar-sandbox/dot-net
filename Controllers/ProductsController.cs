@@ -28,7 +28,7 @@ namespace simpleproject_products_api.Controllers
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://i-product-api-fuse-online.apps.mgmt.myocp.net/api/product"))
+                using (var response = await httpClient.GetAsync("https://i-get-product-list-fuse.apps.ocp.myocp.net/api/product"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     return JsonSerializer.Deserialize<List<Product>>(apiResponse);
