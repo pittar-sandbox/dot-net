@@ -14,7 +14,7 @@ namespace simpleproject_products_api
 
         public string name { get; set; }
 
-        public float price { get; set; }
+        public double price { get; set; }
 
         public string addon {
             get {

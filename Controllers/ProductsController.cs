@@ -27,12 +27,19 @@ namespace simpleproject_products_api.Controllers
             _logger.LogInformation("DOTNETCORE-PRODUCTS-API: Get Product List");
             
             Product p1 = new Product();
-            p1.description = "desc";
-            p1.name = "name";
+            p1.description = "1TB SSD M2 - Geforce RTX";
+            p1.name = "Lenovo i7 32GB RAM";
+            p1.price = 2399.99;
 
             Product p2 = new Product();
-            p2.description = "desc";
-            p2.name = "name";
+            p2.description = "1TB SSD - Geforce 4GB - Magic mouse inclus.";
+            p2.name = "Macbook pro 16 pouces 32GB RAM";
+            p2.price = 4599.99;
+
+            Product p3 = new Product();
+            p3.description = "512GB SSD - Intel Graphics";
+            p3.name = "Acer i5 8GB RAM";
+            p3.price = 899.99;
             
             return new List<Product> {p1, p2};
 
