@@ -39,7 +39,7 @@ namespace simpleproject_products_api.Controllers
             Product p3 = new Product();
             p3.description = "512GB SSD - Intel Graphics";
             p3.name = "Acer i5 8GB RAM";
-            p3.price = 899.99;
+            p3.price = 799.99;
             
             return new List<Product> {p1, p2};
 
