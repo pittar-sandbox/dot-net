@@ -25,15 +25,26 @@ namespace simpleproject_products_api.Controllers
             List<Product> productList = new List<Product>();
 
             _logger.LogInformation("DOTNETCORE-PRODUCTS-API: Get Product List");
+            
+            Product p1 = new Product();
+            p1.description = "desc";
+            p1.name = "name";
 
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("https://i-get-product-list-fuse.apps.ocp.myocp.net/api/product"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<List<Product>>(apiResponse);
-                }
-            }
+            Product p2 = new Product();
+            p2.description = "desc";
+            p2.name = "name";
+            
+            return new List<Product> {p1, p2};
+
+
+            //using (var httpClient = new HttpClient())
+            //{
+            //    using (var response = await httpClient.GetAsync("https://i-get-product-list-fuse.apps.ocp.myocp.net/api/product"))
+            //    {
+            //        string apiResponse = await response.Content.ReadAsStringAsync();
+            //        return JsonSerializer.Deserialize<List<Product>>(apiResponse);
+            //    }
+            //}
         }
     }
 }
