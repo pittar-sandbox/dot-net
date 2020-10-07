@@ -40,8 +40,13 @@ namespace simpleproject_products_api.Controllers
             p3.description = "512GB SSD - Intel Graphics";
             p3.name = "Acer i5 8GB RAM";
             p3.price = 799.99;
-            
-            return new List<Product> {p1, p2};
+
+            Product p4 = new Product();
+            p4.description = "256GB SSD - Intel Graphics (SPECIAL!!)";
+            p4.name = "Acer i3 4GB RAM";
+            p4.price = 399.99;
+
+            return new List<Product> {p1, p2, p3, p4};
 
 
             //using (var httpClient = new HttpClient())
