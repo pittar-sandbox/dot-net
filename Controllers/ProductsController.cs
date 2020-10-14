@@ -5,6 +5,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System;
+using System.IO;
 
 namespace simpleproject_products_api.Controllers
 {
@@ -23,8 +25,10 @@ namespace simpleproject_products_api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Product>> Get()
         {
-            List<Product> productList = new List<Product>();
+            Console.Out.WriteLine("GET-PRODUCT-API call");
 
+            List<Product> productList = new List<Product>();
+            
             _logger.LogInformation("DOTNETCORE-PRODUCTS-API: Get Product List");
             
             Product p1 = new Product();
