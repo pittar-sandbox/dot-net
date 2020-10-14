@@ -6,4 +6,5 @@
   </PropertyGroup>
 
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'simpleproject_api_inventory' " />
 </Project>

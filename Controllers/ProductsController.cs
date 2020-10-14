@@ -9,6 +9,7 @@ using System.Text.Json.Serialization;
 namespace simpleproject_products_api.Controllers
 {
     [ApiController]
+    [Route("/")]
     [Route("/api/[controller]")]
     public class ProductsController : ControllerBase
     {
