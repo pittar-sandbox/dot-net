@@ -51,7 +51,12 @@ namespace simpleproject_products_api.Controllers
             p4.name = "Acer i3 4GB RAM";
             p4.price = 399.99;
 
-            return new List<Product> {p1, p2, p3, p4};
+            Product p5 = new Product();
+            p5.description = "TEST";
+            p5.name = "TEST";
+            p5.price = 399.99;
+
+            return new List<Product> {p1, p2, p3, p4, p5};
 
 
             //using (var httpClient = new HttpClient())
