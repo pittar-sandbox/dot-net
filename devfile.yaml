@@ -1,0 +1,66 @@
+apiVersion: 1.0.0
+metadata:
+ generateName: dot-net-demo-
+projects:
+  - name: dot-net-demo
+    source:
+      location: 'https://github.com/pittar-sandbox/dot-net.git'
+      type: 'git'
+components:
+  - id: redhat-developer/che-omnisharp-plugin/latest
+    type: chePlugin
+    alias: omnisharp
+  - id: redhat-developer/netcoredbg-theia-plugin/latest
+    type: chePlugin
+    alias: netcoredbg
+  - mountSources: true
+    endpoints:
+      - name: products-endpoint
+        port: 5000
+    memoryLimit: 512Mi
+    type: dockerimage
+    volumes:
+      - name: nuget
+        containerPath: /home/jboss/.nuget
+    alias: dotnet
+    image: 'registry.redhat.io/codeready-workspaces/stacks-dotnet-rhel8@sha256:ea77974b206c7d7abcad5cd32149f6bb669d3cf867135553af4d7dddd24ba9cf'
+  - id: redhat/vscode-xml/latest
+    type: chePlugin
+commands:
+  - name: 1. Update dependencies
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dot-net-demo'
+        type: exec
+        command: dotnet restore
+        component: dotnet
+  - name: 2. Build
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dot-net-demo'
+        type: exec
+        command: dotnet build
+        component: dotnet
+  - name: 3. Run
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/dot-net-demo'
+        type: exec
+        command: dotnet run
+        component: dotnet
+  - name: Launch .net web application in debug mode
+    actions:
+      - referenceContent: |
+          {
+            "version": "0.2.0",
+              "configurations": [
+                 {
+                    "type": "netcoredbg",
+                    "request": "launch",
+                    "program": "/projects/dot-net-demo/bin/Debug/netcoreapp3.1/web.dll",
+                    "args": [],
+                    "name": ".NET Core Launch (console)",
+                    "stopAtEntry": true,
+                    "preLaunchTask": "2. Build",
+                    "console": "internalConsole"
+                  }
+              ]
+          }
+        type: vscode-launch
